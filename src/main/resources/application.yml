@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=UTC&characterEncoding=UTF-8  #portfolio 데이터 베이스를 사용
+    username: root  #root 계정 사용
+    password: Chris9559!  #root 계정의 비밀번호로 작성
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect  #사용하는 DB에 따라 변경
+    show-sql: false
+    hibernate.ddl-auto: create
