@@ -1,4 +1,4 @@
-package mynspluto.blog.back;
+package mynspluto.blog.back.domain.curriculum;
 
 import lombok.Data;
 import lombok.Getter;
@@ -12,15 +12,13 @@ import javax.persistence.Id;
 @Data
 @Getter
 @Setter
-@Entity(name="test")
-public class TestEntity {
+@Entity(name="curriculum")
+public class Curriculum {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     private String name;
 
-    private String age;
-
-    private String schoolName;
+    private String subject;
 }
