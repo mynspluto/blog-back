@@ -15,10 +15,15 @@ import javax.persistence.Id;
 @Entity(name="curriculum")
 public class Curriculum {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
     private String subject;
+
+    public Curriculum(String name, String subject) {
+        this.name = name;
+        this.subject = subject;
+    }
 }
