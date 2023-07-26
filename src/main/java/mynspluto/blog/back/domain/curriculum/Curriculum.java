@@ -1,29 +1,28 @@
 package mynspluto.blog.back.domain.curriculum;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import mynspluto.blog.back.domain.workbook.Workbook;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
-@Getter
-@Setter
-@Entity(name="curriculum")
+@NoArgsConstructor
+@RequiredArgsConstructor
+@Entity(name = "curriculum")
 public class Curriculum {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NonNull
     private String name;
 
+    @NonNull
     private String subject;
 
-    public Curriculum(String name, String subject) {
-        this.name = name;
-        this.subject = subject;
-    }
+    @OneToMany
+    @JoinColumn(name = "id")
+    private List<Workbook> workbooks = new ArrayList<Workbook>();
 }
