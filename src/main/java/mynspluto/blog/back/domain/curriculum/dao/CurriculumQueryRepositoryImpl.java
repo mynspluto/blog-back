@@ -1,7 +1,8 @@
-package mynspluto.blog.back.domain.curriculum;
+package mynspluto.blog.back.domain.curriculum.dao;
 
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import mynspluto.blog.back.domain.curriculum.Curriculum;
 
 import javax.persistence.EntityManager;
 import java.util.List;

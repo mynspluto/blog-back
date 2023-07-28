@@ -1,8 +1,8 @@
 package mynspluto.blog.back.curriculum;
 
 import mynspluto.blog.back.domain.curriculum.Curriculum;
-import mynspluto.blog.back.domain.curriculum.CurriculumQueryParam;
-import mynspluto.blog.back.domain.curriculum.CurriculumRepository;
+import mynspluto.blog.back.domain.curriculum.dao.CurriculumQueryParam;
+import mynspluto.blog.back.domain.curriculum.dao.CurriculumRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package mynspluto.blog.back.domain.curriculum;
+package mynspluto.blog.back.domain.curriculum.dao;
 
 import lombok.Data;
 
