@@ -16,11 +16,16 @@ public class Workbook {
 
     private String name;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "curriculum_id")
     private Curriculum curriculum;
 
     public Workbook(String name) {
         this.name = name;
+    }
+
+    public Workbook(String name, Curriculum curriculum) {
+        this.name = name;
+        this.curriculum = curriculum;
     }
 }

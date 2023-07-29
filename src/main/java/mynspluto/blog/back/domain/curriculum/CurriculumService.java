@@ -1,8 +1,12 @@
 package mynspluto.blog.back.domain.curriculum;
 
 import lombok.RequiredArgsConstructor;;
+import mynspluto.blog.back.domain.curriculum.dao.CurriculumQueryParam;
+import mynspluto.blog.back.domain.workbook.Workbook;
 import org.springframework.stereotype.Service;
 import mynspluto.blog.back.domain.curriculum.dao.CurriculumRepository;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -10,7 +14,16 @@ public class CurriculumService {
     private final CurriculumRepository curriculumRepository;
 
     public Curriculum save(Curriculum curriculum) {
-        return curriculumRepository.save(new Curriculum(curriculum.getName(), curriculum.getSubject()));
+        return curriculumRepository.save(new Curriculum(curriculum.getName(), curriculum.getSubject(), curriculum.getWorkbooks()));
+    }
+
+    public Curriculum saveWithWorkbooks(Curriculum curriculum, List<Workbook> workbooks) {
+
+        return null;
+    }
+
+    public List<Curriculum> findBySubject(CurriculumQueryParam curriculumQueryParam) {
+        return curriculumRepository.findBySubject(curriculumQueryParam);
     }
 
     //1. curriculum 생성

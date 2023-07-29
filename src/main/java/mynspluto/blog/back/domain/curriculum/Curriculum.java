@@ -22,7 +22,13 @@ public class Curriculum {
     @NonNull
     private String subject;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
     private List<Workbook> workbooks = new ArrayList<Workbook>();
+
+    public Curriculum(String name, String subject, List<Workbook> workbooks) {
+        this.name = name;
+        this.subject = subject;
+        this.workbooks = workbooks;
+    }
 }
