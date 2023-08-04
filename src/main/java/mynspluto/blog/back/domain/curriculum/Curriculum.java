@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Entity(name = "curriculum")
@@ -22,13 +21,32 @@ public class Curriculum {
     @NonNull
     private String subject;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @OneToMany(mappedBy = "curriculum", cascade = CascadeType.ALL)
     private List<Workbook> workbooks = new ArrayList<Workbook>();
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getSubject() {
+        return this.subject;
+    }
+
+    public List<Workbook> getWorkbooks() {
+        return this.workbooks;
+    }
 
     public Curriculum(String name, String subject, List<Workbook> workbooks) {
         this.name = name;
         this.subject = subject;
         this.workbooks = workbooks;
+    }
+
+    public void addWorkbook(Workbook workbook) {
+        this.workbooks.add(workbook);
+        if (workbook.getCurriculum() != this) {
+            System.out.println("workbook.getCurriculum() != this");
+            workbook.setCurriculum(this);
+        }
     }
 }

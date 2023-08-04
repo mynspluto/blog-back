@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 @Entity
 public class Workbook {
     @Id
@@ -16,9 +15,27 @@ public class Workbook {
 
     private String name;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "curriculum_id")
     private Curriculum curriculum;
+
+    public Curriculum getCurriculum() {
+        return this.curriculum;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setCurriculum(Curriculum curriculum) {
+        this.curriculum = curriculum;
+        System.out.println("this.curriculum = curriculum");
+        if (!curriculum.getWorkbooks().contains(this)) {
+            System.out.println("workbook this");
+            System.out.println(this);
+            curriculum.getWorkbooks().add(this);
+        }
+    }
 
     public Workbook(String name) {
         this.name = name;

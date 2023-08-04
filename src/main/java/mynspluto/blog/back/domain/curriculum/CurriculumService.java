@@ -14,7 +14,7 @@ public class CurriculumService {
     private final CurriculumRepository curriculumRepository;
 
     public Curriculum save(Curriculum curriculum) {
-        return curriculumRepository.save(new Curriculum(curriculum.getName(), curriculum.getSubject(), curriculum.getWorkbooks()));
+        return curriculumRepository.save(curriculum);
     }
 
     public Curriculum saveWithWorkbooks(Curriculum curriculum, List<Workbook> workbooks) {

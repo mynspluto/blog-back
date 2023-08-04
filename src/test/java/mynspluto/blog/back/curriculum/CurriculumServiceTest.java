@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,10 +40,12 @@ public class CurriculumServiceTest {
 
     @Test
     public void saveWithWorkbooks() {
-        Curriculum curriculum = curriculumService.save(new Curriculum("과학 3-1", "과학8123"));
-        workbookService.save(new Workbook("345", curriculum));
-        workbookService.save(new Workbook("567", curriculum));
-        System.out.println("curriculum");
+        Curriculum curriculum = new Curriculum("과학 3-1", "과학8123");
+        curriculum.addWorkbook(new Workbook("345"));
+        curriculum.addWorkbook(new Workbook("567"));
+
+
+        curriculumService.save(curriculum);
         System.out.println(curriculum);
     }
 
